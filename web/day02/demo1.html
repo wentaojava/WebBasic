@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示表单</title>
+</head>
+<body>
+<form action="提交地址">
+<p>
+    账号：
+    <input type="text" value="输入账号" maxlength="10"/>
+</p>
+    <p>
+        密码：<input type="password"/>
+    </p>
+    <p>
+        性别：（单选框）
+        <input type="radio" name="sex" id="male" checked/>
+        <!--将字与按钮绑定-->
+        <label for="male">男</label>
+        <input type="radio" name="sex"/>女
+    </p>
+    <p>
+        兴趣;（多选框）
+        <input type="checkbox"/>养生
+        <input type="checkbox"/>踢球
+        <input type="checkbox"/>打游戏
+    </p>
+    <p>
+        <!--隐藏框，用于提交不被用户看到的数据-->
+        <input type="hidden" value="test"/>
+    </p>
+    <p>
+        <!--文件框-->
+        头像：
+        <input type="file"/>
+    </p>
+    <p>
+        提交按钮
+        <input type="submit" value="保存"/>
+    </p>
+    <p>
+        重置按钮
+        <input type="reset" value="重置"/>
+    </p>
+    <p>
+        普通按钮
+        <input type="button" value="普通按钮"/>
+    </p>
+    <p>
+        下拉选择框：
+        <select>
+            <option>请选择</option>
+            <option>选项1</option>
+            <option selected>选项2</option>
+            <option>选项3</option>
+        </select>
+    </p>
+    <p>
+        文本域：
+        <textarea cols="30" rows="10">默认值</textarea>
+    </p>
+</form>
+
+</body>
+</html>
