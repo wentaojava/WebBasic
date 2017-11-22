@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f2() {
+            alert("按钮2");
+        }
+    </script>
+    <!--引入js，不能引入之后再书写-->
+    <script src="jsDemo1.js"></script>
+</head>
+<body>
+<input type="button" value="button1" onclick="alert('按钮1');"/>
+<input type="button" value="button2" onclick="f2();"/>
+<input type="button" value="button3" onclick="f3();"/>
+</body>
+</html>
