@@ -13,6 +13,35 @@
         a.push("姓名");
         a.push(1);
         console.log(a[0]);
+        /*数组倒转*/
+        var a1=[1,4,2,6,9,22];
+        a1.reverse();
+        console.log(a1);
+        /*数组排序*/
+        a1.sort();
+        console.log(a1);
+        /**/
+        a1.sort(function (a,b) {
+            return a-b;
+        });
+        console.log(a1);
+        /*Date对象*/
+        //创建日期
+        var d1=new Date();
+        var d2=new Date("2011/11/11 11:11:11");
+        console.log(d1);
+        console.log(d2);
+        //日期转为本地时间格式
+        console.log(d1.toLocaleDateString());
+        console.log(d2.toLocaleTimeString());
+        //读取时间分量
+        var x=d1.getFullYear();
+        var y=d1.getMonth()+1;//月份从0开始
+        var z=d1.getDate();
+        var date=x+'年'+y+'月'+z+'日';
+        console.log(date);
+
+
 
     </script>
 </head>
