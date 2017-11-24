@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .ok{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+
+    <script>
+        function checkCode() {
+            //获取账号
+            var code=document.getElementById("user").value;
+            //获取span
+            var span=document.getElementById("codeMessage");
+            //检查账号
+            var reg=/^\w{6,15}$/;
+            //格式正确提示字体变绿，否则变红
+            if(reg.test(code)){
+                 span.className="ok";
+                 return true;
+            }else{
+                span.className="error";
+                return false;
+            }
+        }
+        function checkPwd() {
+            //获取密码
+            var pwd=document.getElementById("pwd").value;
+            //获取密码提示的span
+            var pwdSpan=document.getElementById("pwdMessage");
+            var reg=/^\w{6,20}$/;
+            if(reg.test(pwd)){
+                pwdSpan.className="ok";
+                return true;
+            }else{
+                pwdSpan.className="error";
+                return false;
+            }
+        }
+    </script>
+
+</head>
+<body>
+<p>正则对象课堂案例</p>
+<form action="" onsubmit="return checkCode()&&checkPwd()">
+    <p>
+        账号：
+        <input type="text" id="user" onblur="checkCode()"/><!--定义失去焦点事件-->
+        <span id="codeMessage">6-15位字母、数字、下划线</span>
+    </p>
+    <p>
+        密码：
+        <input type="password" id="pwd" onblur="checkPwd()"/>
+        <span id="pwdMessage">6-20位字母、数字、下划线</span>
+    </p>
+    <p>
+        <input type="submit" id="submit" value="登录"/>
+    </p>
+</form>
+</body>
+</html>
