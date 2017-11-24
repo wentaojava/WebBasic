@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function sum() {
+            var input=document.getElementById("input");
+            var str=input.value;
+            try{
+                input.value=eval(str);
+            }catch(ex){
+                input.value="error";
+            }
+        }
+    </script>
+
+</head>
+<body>
+<input type="text" id="input"/>
+<input type="button" value="=" id="button" onclick="sum();"/>
+</body>
+</html>
