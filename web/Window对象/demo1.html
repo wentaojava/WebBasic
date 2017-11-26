@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1() {
+            var re=confirm("确定清空？");
+            if(re){
+                console.log("re");
+            }
+        }
+        //演示周期性定时器
+        function f2() {
+            var a=5;
+            var span=document.getElementById("timeView");
+            //返回的id是定时器的唯一标识，用来停止定时器
+            var id=setInterval(function(){
+                span.innerHTML=a;
+                a-=1;
+                if(a<-1){
+                    span.innerHTML="定时结束";
+                    clearInterval(id);
+                }
+            },1000);
+        }
+        //演示一次性定时器
+        var id;
+        function f3() {
+           console.log("这是一个假广告");
+            id=setTimeout(function () {
+                console.log("广告被关闭了");
+            },5000);
+
+        }
+        function f4() {
+            clearTimeout(id);
+            console.log("广告被直接关闭了");
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="清空" onclick="f1();"/>
+<p>
+    <input type="button" value="定时器" onclick="f2();">
+    <span id="timeView"></span>
+</p>
+<p>
+    <input type="button" value="一次性定时器" onclick="f3();"/>
+    <input type="button" value="直接关闭" onclick="f4();"/>
+</p>
+
+</body>
+</html>
