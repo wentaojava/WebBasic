@@ -17,6 +17,10 @@
         //案例函数
         var timeID;
         function start() {
+            //判断ID是否为空
+            if(timeID){
+                return;
+            }
             var div=document.getElementById("timeView");
             div.innerHTML="1s后显示时间";
             timeID=setInterval(function () {
@@ -28,6 +32,8 @@
         function stop() {
             var div=document.getElementById("timeView");
             clearInterval(timeID);
+            //清空ID，保证下次可以启动定时器
+            timeID=undefined;
             div.innerHTML="被停止了";
         }
     </script>

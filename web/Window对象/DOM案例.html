@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //onload是页面加载时间，在页面加载完成时自动调用
+        //触发时调用对应函数
+        window.onload=function () {
+            //读写节点
+            //1.读取节点的名称和类型
+            var p1=document.getElementById("p1");
+            console.log(p1.nodeName);
+            console.log(p1.nodeType);
+            //2.读写节点的内容(任何双标签中间的文本就是内容)
+               //innerHtml:带标签
+            var p2=document.getElementById("p2");
+            console.log(p2.innerHTML);
+            p2.innerHTML="2.DOM提供了<u>查询</u>节点的方法";
+               //innerText:不带标签
+            var p3=document.getElementById("p3");
+            console.log(p3.innerText);
+            p3.innerText="2.DOM提供了<u>查询</u>节点的方法";
+            //3.读写节点的值(除了Label以外的表单控件都有值)
+               //读：input.value
+               //写：input.value=""
+            //4.读写节点属相
+               //4.1通过方法读写任何属性
+            var img1=document.getElementById("img1");
+            console.log(img1.getAttribute("src"));
+               //改
+            img1.setAttribute("src","4.png");
+            img1.removeAttribute("src");
+               //4.2通过属性名读写几个属性:id,style,className
+            var a1=document.getElementById("a1");
+            console.log(a1.style.color);
+            a1.style.color="blue";
+        }
+
+    </script>
+</head>
+<body>
+<p id="p1">1.DOM提供了<b>读写</b>节点的方法</p>
+<p id="p2">2.DOM提供了<b>查询</b>节点的方法</p>
+<p id="p3">3.DOM提供了<b>增删</b>节点的方法</p>
+<p><img src="../day01/1.jpg" id="img1"></p>
+<p><a href="#" id="a1" style="color: red;"/> 通过属性名读写属性</p>
+</body>
+</html>

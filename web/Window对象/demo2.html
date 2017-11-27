@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1() {
+            var re=confirm("确定离开本页面?");
+            if(re){
+                location.href="https://www.baidu.com/";
+            }
+        }
+        //演示screen对象
+        console.log(screen.height);
+        console.log(screen.width);
+        //演示navigator对象
+        console.log(navigator.userAgent);
+    </script>
+</head>
+<body>
+<input type="button" value="Location.href（超链接）演示" onclick="f1();"/><br/>
+<input type="button" value="Location.reload（刷新）演示" onclick="location.reload();"/><br/>
+<input type="button" value="history.forward（前进）演示" onclick="history.forward();"/><br/>
+</body>
+</html>
