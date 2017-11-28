@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border: 1px solid red;
+            width: 218px;
+            height: 218px;
+            margin: 30px auto;
+        }
+        .hide{
+            display:none;
+        }
+        .show{
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+        //记录轮播次数
+        var n=0;
+        var id;
+        window.onload=function () {
+            start();
+        }
+        function stop() {
+            clearInterval(id);
+        }
+        function start() {
+            id= setInterval(function () {
+                n++;
+                //获取所有图片
+                var imgs=document.getElementsByTagName("img");
+                //隐藏所有图片
+                for(var i=0;i<imgs.length;i++){
+                    imgs[i].className="hide";
+                }
+                //显示下一个图片
+                var next=n%imgs.length;
+                imgs[next].className="show";
+            },2000);
+        }
+    </script>
+</head>
+<body>
+<div onmouseover="stop()" onmouseout="start()">
+    <img src="imgs/1.jpg"/>
+    <img src="imgs/2.jpg" class="hide"/>
+    <img src="./imgs/3.jpg" class="hide"/>
+    <img src="imgs/4.png" class="hide"/>
+    <img src="imgs/5.jpg" class="hide"/>
+    <img src="imgs/6.jpg" class="hide"/>
+
+</div>
+
+</body>
+</html>

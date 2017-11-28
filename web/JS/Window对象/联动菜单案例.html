@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var cities;
+        window.onload=function () {
+            cities= [["省份1的城市1","省份1的城市2","省份1的城市3"],
+                ["省份2的城市1","省份2的城市2","省份2的城市3","省份2的城市4"],
+                ["省份3的城市1","省份3的城市2","省份3的城市3"]];
+        }
+        function change() {
+            var p=document.getElementById("province").value;
+            //获取对应省份的城市
+            var pCities=cities[p];
+           //获取城市的父节点
+            var select=document.getElementById("city");
+            /* //获取城市
+            var options=select.getElementsByTagName("option");
+            //先删除上一次选择的城市
+            for(var i=options.length-1;i>0;i--){
+                select.removeChild(options[i]);
+            }*/
+            //先删除上一次选择的城市
+            select.innerHTML=" <option>请选择</option>";
+
+            //增加新选择的城市
+            if(pCities){
+            for(var i=0;i<pCities.length;i++){
+                var option=document.createElement("option");
+                option.innerHTML=pCities[i];
+                select.appendChild(option);
+              }
+            }
+        }
+    </script>
+</head>
+<body>
+省份：
+<select id="province" onchange="change();">
+    <option value="-1">请选择</option>
+    <option value="0">省份1</option>
+    <option value="1">省份2</option>
+    <option value="2">省份3</option>
+</select>
+城市：
+<select id="city">
+    <option>请选择</option>
+</select>
+</body>
+</html>

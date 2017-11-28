@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            //查询节点
+            //1.根据ID查询
+            //2.根据标签名查询
+            //3.根据name查询
+            var radios=document.getElementsByName("sex");
+            console.log(radios);
+            //4.根据层次（关系）查询节点
+            var li1=document.getElementById("li1");
+               //4.1查询某个节点的父节点
+            var ul=li1.parentNode;
+            console.log(ul);
+               //4.2查询某节点的孩子(带文本)
+            console.log(ul.childNodes);
+               //4.3查询某节点的孩子(不带文本)
+            console.log(ul.getElementsByTagName("li"));
+               //4.4查询某节点的兄弟:节点.父亲.孩子
+            var n=li1.parentNode.getElementsByTagName("li")[1];
+            console.log(n);
+        }
+        //增加节点
+        function f1() {
+            //创建新节点
+            var li=document.createElement("li");
+            //修改li
+            li.innerHTML="新增的列表";
+            //追加新节点
+            var ul=document.getElementById("liebiao");
+            ul.appendChild(li);
+        }
+        //插入节点
+        function f2() {
+            //创建新节点
+            var li=document.createElement("li");
+            //修改li
+            li.innerHTML="插入的列表";
+            //插入新节点
+            var ul=document.getElementById("liebiao");
+            var liOld=document.getElementById("li1");
+            ul.insertBefore(li,liOld);
+        }
+        //删除节点
+        function f3() {
+            var fujiedian=document.getElementById("liebiao");
+            var zijiedina=document.getElementById("li2");
+            fujiedian.removeChild(zijiedina);
+        }
+    </script>
+</head>
+
+<body>
+<p>
+ <input type="radio" name="sex"/>男
+ <input type="radio" name="sex"/>女
+</p>
+<ul id="liebiao">
+    <li id="li1">列表1</li>
+    <li>列表2</li>
+    <li>列表3</li>
+    <li id="li2">列表4</li>
+    <li>列表5</li>
+</ul>
+<p>
+    <input type="button" value="增加" onclick="f1();"/>
+    <input type="button" value="插入" onclick="f2();"/>
+    <input type="button" value="删除" onclick="f3();"/>
+</p>
+</body>
+</html>
