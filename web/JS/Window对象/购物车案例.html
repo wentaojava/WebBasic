@@ -42,17 +42,72 @@
               '<td>'+firstTd+'</td>\n' +
               '<td>'+secondTd+'</td>\n' +
               '<td align="center">\n' +
-              '<input type="button" value="-"/>\n' +
+              '<input type="button" value="-" onclick="reduce(this);"/>\n' +
               '<input type="text" size="3" readonly value="1"/>\n' +
-              '<input type="button" value="+"/>\n' +
+              '<input type="button" value="+" onclick="add(this);"/>\n' +
               '</td>\n' +
               '<td>'+secondTd+'</td>\n' +
-              '<td align="center"><input type="button" value="x"/></td>';
+              '<td align="center"><input type="button" value="x" onclick="deleteGood(this);"/></td>';
           //把新行追加到tbody下
           var tbody=document.getElementById("goods");
           tbody.appendChild(newTR);
-
       }
+
+      //添加数量函数
+        function add(btn) {
+            var textValue=btn.parentNode.childNodes[3];
+            var number=++textValue.value;
+            //console.log(number);
+            //获取该列的哥哥即单价列
+            var price=btn.parentNode.parentNode.getElementsByTagName("td")[1].innerHTML;
+            //console.log(price);
+            //计算总价
+            var total=number*price;
+            //获取该列的弟弟即金额列
+            var totalValue=btn.parentNode.parentNode.getElementsByTagName("td")[3];
+            //赋值总价
+            totalValue.innerHTML=total;
+        }
+
+        //减少数量函数
+        function reduce(btn) {
+            var textValue=btn.parentNode.childNodes[3];
+            if(textValue.value>0){
+            var number=--textValue.value;
+            //console.log(number);
+            //获取该列的哥哥即列
+            var price=btn.parentNode.parentNode.getElementsByTagName("td")[1].innerHTML;
+            //console.log(price);
+            //计算总价
+            var total=number*price;
+            //获取该列的弟弟即金额列
+            var totalValue=btn.parentNode.parentNode.getElementsByTagName("td")[3];
+            //赋值总价
+            totalValue.innerHTML=total;
+
+            }
+        }
+
+        //删除商品
+        function deleteGood(btn) {
+          //获取按钮的父节点的父节点的父节点(tbody)
+            var Tbody=btn.parentNode.parentNode.parentNode;
+          //获取按钮的父节点(td)的父节点(tr)
+            var TR=btn.parentNode.parentNode;
+            //删除所有子节点
+            Tbody.removeChild(TR);
+        }
+
+        //显示合计
+        function Total() {
+          //获取tbody
+            var Tbody=document.getElementById("goods");
+            //获取tbody的子节点
+            var zijiedian=Tbody.getElementsByTagName("tr");
+            console.log(zijiedian);
+
+
+        }
     </script>
   </head>
   <body>
