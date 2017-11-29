@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:200px ;
+            border:1px solid red;
+            padding:30px;
+
+        }
+        p{
+            border:1px solid red;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+    <script>
+        function f1(e) {
+            alert('button');
+            //取消冒泡
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{
+                e.cancelBubble=true;
+            }
+        }
+    </script>
+</head>
+<body>
+<!--冒泡机制-->
+<div onclick="alert('div');">
+    <p onclick="alert('p');">
+        <input type="button" value="按钮" onclick="f1(event);"/>
+    </p>
+</div>
+</body>
+</html>

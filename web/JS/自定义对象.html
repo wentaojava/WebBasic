@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function f1() {
+            var stu={
+                "name":"zhangsan",
+                "age":25,
+                "job":function (){
+                    alert("study java");
+                }
+            };
+            alert(stu.name);
+            alert(stu.age);
+            stu.job();
+            
+        }
+
+        //内置构造器创建对象
+        function f2() {
+            var teacher=new Object();
+            teacher.name="lisi";
+            teacher.age=30;
+            teacher.work=function () {
+                alert("teaching");
+            };
+            alert(teacher.name);
+            alert(teacher.age);
+            teacher.work();
+        }
+        
+        //自定义构造器创建对象
+           //首字母大写的就是构造器
+        function Coder(name,age,work) {
+            this.name=name;
+            this.age=age;
+            this.work=work;
+        }
+        function f3() {
+            var code=new Coder("wangwu",21,function () {
+                alert("coding");
+            });
+            alert(code.name);
+            alert(code.age);
+            code.work();
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="直接量（JSON）" onclick="f1();"/><br/>
+<input type="button" value="内置构造器" onclick="f2();"/><br/>
+<input type="button" value="自定义构造器" onclick="f3();"/>
+</body>
+</html>
